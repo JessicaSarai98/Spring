@@ -5,6 +5,8 @@ import com.platzi.market.persistencia.entity.Producto;
 
 import java.util.List;
 
+/**Como es una clase que interactua con la BD entonces se le asigna @Repository */
+@Repository
 public class ProductoRepository {
     private ProductoCrudRepository productoCrudRepository;
 
@@ -19,8 +21,21 @@ public class ProductoRepository {
         return productoCrudRepository.findByIdCategoriaOrderByNombreAsc(idCategoria); 
         
     }
-
     public Optional<List<Producto>> getEscasos(int cantidad){
         return productoCrudRepository.findByCantidadStockLessThanAndEstado(cantidad, true); 
     }
+    //obtener producto dado su Id
+    public Optional<Producto> getProducto(int idProducto){
+        return productoCrudRepository.findById(idProducto); 
+    }
+
+    //guardar producto
+   public Producto save(Producto producto){
+       return productoCrudRepository.save(producto); 
+   } 
+    //Eliminando con llave primaria al producto 
+   public void delete(int idProducto){
+       //si se pusiera solo .delete(Entidad) eliminaría la entidad completa. 
+       productoCrudRepository.deleteById(idProducto); 
+   }
 }
