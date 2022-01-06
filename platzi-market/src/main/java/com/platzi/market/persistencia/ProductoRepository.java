@@ -5,7 +5,8 @@ import com.platzi.market.persistencia.entity.Producto;
 
 import java.util.List;
 
-/**Como es una clase que interactua con la BD entonces se le asigna @Repository */
+/**Como es una clase que interactua con la BD entonces se le asigna @Repository 
+@Component es una generalización pero queda mejor Repository*/
 @Repository
 public class ProductoRepository {
     private ProductoCrudRepository productoCrudRepository;
