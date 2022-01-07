@@ -2,8 +2,9 @@ package com.platzi.market.persistencia;
 
 import com.platzi.market.persistencia.crud.ProductoCrudRepository;
 import com.platzi.market.persistencia.entity.Producto;
-
+import org.springframework.stereotype.Repository;
 import java.util.List;
+import java.util.Optional;
 
 /**Como es una clase que interactua con la BD entonces se le asigna @Repository 
 @Component es una generalización pero queda mejor Repository*/
@@ -19,7 +20,8 @@ public class ProductoRepository {
     public List<Producto> getByCategoria(int idCategoria){
         /*Se nombra como está en el CrudRepository - devuelve una lista de productos con la categoria especifica
         ordenador en orden alfabetic*/
-        return productoCrudRepository.findByIdCategoriaOrderByNombreAsc(idCategoria); 
+        return
+                productoCrudRepository.findByIdCategoriaOrderByNombreAsc(idCategoria);
         
     }
     public Optional<List<Producto>> getEscasos(int cantidad){

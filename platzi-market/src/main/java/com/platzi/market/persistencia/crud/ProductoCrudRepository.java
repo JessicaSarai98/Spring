@@ -3,6 +3,9 @@ package com.platzi.market.persistencia.crud;
 import com.platzi.market.persistencia.entity.Producto;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+import java.util.Optional;
+
 //Aqui se crean los query methods
 public interface ProductoCrudRepository extends CrudRepository<Producto, Integer> {
     /*escribiendo un nuevo metodo - recuperar toda la lista de prod que pertenezcan a una categoria en especifico
