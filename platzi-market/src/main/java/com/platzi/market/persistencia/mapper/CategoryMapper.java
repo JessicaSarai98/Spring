@@ -21,9 +21,12 @@ public interface CategoryMapper {
     })
     Category toCategory(Categoria categoria);
     /*Lo siguiente signfica que la conversion es la inversa de mapping,
-    * entonces no se deberia de realizar lo siguiente*/
+    * entonces no se deberia de realizar lo siguiente
     @InheritInverseConfiguration
     @Mapping(target="productos",ignore = true) //como en categoria está el atributo productos y en domain no, entonces se ignora
     Categoria toCategoria(Category category);
-
+*/
+    @InheritInverseConfiguration
+    @Mapping(target = "productos", ignore = true)
+    Categoria toCategoria(Category category);
 }
